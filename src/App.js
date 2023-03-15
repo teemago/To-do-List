@@ -1,10 +1,25 @@
-function App () {
-    	
+import ButtonOnChange from './components/ButtonOnChange';
+import AddMenu from './components/AddMenu';
+import { useState } from 'react';
+import './index.css';
 
-    return(
-        <div>
-            
-            Batata
+function App() {
+    const [addMenuOn, setAddMenuOn] = useState(false);
+
+    const handleClickMenu = () => {
+        setAddMenuOn(!addMenuOn);
+    };  
+
+    return (
+        <div className="container">
+            <div className='repartion'>
+                <div>
+                <ButtonOnChange onClick={handleClickMenu}/>
+                </div>
+                <div>
+                    {addMenuOn && <AddMenu />}
+                </div>
+            </div>
         </div>
     );
 };
